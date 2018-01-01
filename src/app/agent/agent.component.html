@@ -1,0 +1,27 @@
+<form (ngSubmit)="processInput()">
+  <input name="input" [(ngModel)]="input" />
+</form>
+
+<div>
+  <h4>Perceptual memory</h4>
+  <p *ngFor="let association of perceptualMemory">
+    {{association.symbol.name}}
+  </p>
+</div>
+
+<div>
+  <h4>Working memory</h4>
+  <p *ngFor="let association of workingMemory">
+    {{association.symbol.name}}
+  </p>
+</div>
+
+<div>
+  <h4>Long-term memory</h4>
+  <p *ngFor="let association of longTermMemory">
+    {{association.symbol.name}}
+    <span *ngFor="let associatedSymbol of association.symbol.associations">
+      [{{associatedSymbol.strength}}: {{associatedSymbol.symbol.name}}]
+    </span>
+  </p>
+</div>
